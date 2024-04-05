@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        var div = document.querySelector('#app');
+        //div.innerHTML = 'Hellow World';
+
+        //뷰 모델 선언
+        var viewModel = {};
+        //디파인프로퍼티란 객채를 재 정의 하여 사용? 펑션 만들기?
+        // Object.defineProperty(대상객체, 객체의속성{
+        //     정의할 내용
+        // })
+
+        // Object.defineProperty(viewModel, 'str',{    //viewModel 이 클래스고 str이 펑션인듯
+        //     //속성에 접근했을 때 동작을 정의
+        //     get:function() {
+        //         console.log('접근');
+        //     },
+        //     //속성에 값을 할당했을 때 동작을 정의
+        //     set:function(newValue){                 //newValue는 그냥 네이밍함
+        //         console.log('할당', newValue); 
+        //         div.innerHTML = newValue;
+        //     }
+        // });
+        
+        //(function(){}) ();
+        //자바스크립트 즉시실행 함수, 즉시실행 init
+        (function() {
+            function init() {
+                Object.defineProperty(viewModel, 'str',{    //viewModel 이 클래스고 str이 펑션인듯
+                    //속성에 접근했을 때 동작을 정의
+                    get:function() {
+                        console.log('접근');
+                    },
+                    //속성에 값을 할당했을 때 동작을 정의
+                    set:function(newValue){                 //newValue는 그냥 네이밍함
+                        console.log('할당', newValue); 
+                        render(newValue);
+                    }
+                });   
+            }
+
+            function render(value){
+                div.innerHTML = value;
+            }
+            init();
+        })();
+
+
+
+    </script>    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header></app-header>
+        <app-content></app-content>
+        <app-footer></app-footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //전역 컴포넌트
+
+        //컴포넌트 사용 방법
+        //Vue.component('컴포넌트이름' 컴포넌트내용);
+        //컴포넌트 사용 방법
+        Vue.component('app-header', {
+            template: '<h1>Header</h1>'
+        });
+        Vue.component('app-content',{
+            template: '<div id="#content" style="width : 800px">여기가 바디지롱</div>'
+        })
+        new Vue({
+            el: '#app',
+            components: {
+                //지역 컴포넌트 등록방식
+                
+                //'컴포넌트 이름' : 컴포넌트 내용, 이게 사용법
+                'app-footer' : {
+                    template : '<footer>Footer</footer>'
+                } 
+            } //이게 객체 리터럴
+        });
+    </script>
+</body>
+</html>

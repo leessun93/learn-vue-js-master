@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //document.querySelector('#app'); == $('#app')
+        //제이쿼리같이 테그셀렉터 기능이다.
+        //document만 치면 자동 완성
+        var div = document.querySelector('#app');
+        //log만 치면 자동완성
+        console.log(div);
+        //데이터바인딩 == innerHtml
+        //div.innerHTML = 'Hellow World';
+
+        var Str = 'Hellow World!!!'
+        div.innerHTML = Str;
+    </script>
+</body>
+</html>
