@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:id="uuid" v-bind:class="name">{{num}}</p>
+        <p>{{doubleNum}}</p>
+        <!-- if는 돔에서까지 지우고 show 테그는 css에서 display none 이다. -->
+        <div v-if="loading">
+            Loading...
+        </div>
+        <div v-else>
+            test user has been logged in
+        </div>
+        <div v-show="loading">
+            Loading...show
+        </div>
+
+        <!-- 인풋박스를 만들고 입력된 값을 p 테그에 출력해보자 -->
+        <input type="text" v-model="message">
+        <p>{{message}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>       
+    <script>
+        new Vue ({
+            el : '#app',
+            data : {
+                num : 10,
+                uuid: 'abcd1234',
+                name : 'text-blue',
+                loading : false,
+                message : ''
+            },
+            computed : {    //한글로 계산된 속성
+                doubleNum :function(){
+                    return this.num*2; //this 는 전역변수의 데이타
+                }
+            }
+        });
+        //뷰 디렉티브란 v- 가 붙는 뷰의 속성 , html테그에 쓴다
+        //v-bind:id="uuid" 뷰의바인드:아이디 를 하겠다 uuid라는 아이디로, 아이디 바인딩
+    </script>
+</body>
+</html>
