@@ -4,3 +4,4 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 createApp(App).mount('#app')
+//render: h =>h(app)  이 랜더 코드가 컴포넌트 임포트와 같은 코드이다.

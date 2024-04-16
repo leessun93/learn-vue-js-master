@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ num }}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+    <script>
+        new Vue({
+          el: '#app',
+          data: {
+            num: 10
+          },
+          //뷰 공식적으로 와치보다는 컴퓨티드를 통해 사용하는걸 권장함
+          computed: { //컴퓨티드는 간단한 데이터 변경에 씀
+            doubleNum: function() {
+              return this.num * 2;
+            }
+          },
+          watch: {  //와치는 서버 요청에 의해 변경되는 무거운 연산등에 쓰이면 좋다.
+            num: function(newValue, oldValue) {
+              this.fetchUserByNumber(newValue);
+            }
+          },
+          methods: {
+            fetchUserByNumber: function(num) {
+              // console.log(num);
+              axios.get(num);
+            }
+          }
+        });
+      </script>
+</body>
+</html>
